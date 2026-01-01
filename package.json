@@ -17,8 +17,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx}\"",
     "type-check": "tsc --noEmit",
-    "index-algolia": "bun run scripts/index-algolia.js",
-    "prepare": "husky"
+    "index-algolia": "bun run scripts/index-algolia.js"
   },
   "dependencies": {
     "@docsearch/react": "3",
@@ -47,7 +46,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^9.0.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.2.0",
     "typescript": "^5.3.0"

@@ -17,8 +17,6 @@ Comprehensive documentation for emogir.ls, built with Docusaurus.
 bun install
 ```
 
-This will automatically set up Husky git hooks.
-
 2. **Start the development server:**
 
 ```bash
@@ -28,14 +26,6 @@ bun start
 The site will be available at `http://localhost:3000`.
 
 ### First-Time Setup Notes
-
-#### Pre-commit Hooks
-
-After running `bun install`, Husky will be automatically initialized via the `prepare` script. The pre-commit hooks will:
-
-- Run ESLint on staged JavaScript/TypeScript files
-- Format code with Prettier on staged files
-- Prevent commits if there are linting errors
 
 #### Environment Variables
 
@@ -108,14 +98,6 @@ Check formatting:
 bun run format:check
 ```
 
-### Pre-commit Hooks
-
-Pre-commit hooks are configured using Husky and lint-staged. They will automatically:
-
-- Run ESLint on staged files
-- Format code with Prettier
-- Prevent commits if there are linting errors
-
 ### Code Quality Checks
 
 Before committing, ensure:
@@ -127,20 +109,6 @@ bun run build         # Ensure site builds successfully
 ```
 
 ## Troubleshooting
-
-### Husky hooks not working
-
-If pre-commit hooks aren't running:
-
-```bash
-bunx husky init
-```
-
-Or manually ensure the hooks are executable (on Unix systems):
-
-```bash
-chmod +x .husky/pre-commit
-```
 
 ### Node version issues
 
@@ -171,8 +139,7 @@ nvm use
 ├── scripts/
 │   └── index-algolia.js    # Script to index docs to Algolia
 ├── static/                 # Static assets (images, fonts, etc.)
-├── .husky/                 # Git hooks (pre-commit, etc.)
-├── docusaurus.config.js    # Docusaurus configuration
+├── docusaurus.config.js     # Docusaurus configuration
 ├── sidebars.js             # Sidebar navigation structure
 └── package.json
 ```
