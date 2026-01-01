@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "@docusaurus/router";
 import Link from "@docusaurus/Link";
+import { ChevronDown } from "lucide-react";
 import sidebarConfig from "../../../sidebars";
 import styles from "./styles.module.css";
 
@@ -67,28 +68,39 @@ function SidebarItem({ item, pathname, expandedSections, toggleSection }) {
 
     return (
       <div className={styles.sidebarCategory}>
-        <button
+        <div
           className={`${styles.sidebarCategoryButton} ${hasActiveChild ? styles.sidebarCategoryActive : ""}`}
           onClick={() => toggleSection(categoryKey)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleSection(categoryKey);
+            }
+          }}
         >
           <span className={styles.sidebarCategoryLabel}>
             {capitalizeFirst(item.label)}
           </span>
-          <span className={styles.chevron}>{isExpanded ? "▲" : "▼"}</span>
-        </button>
-        {isExpanded && item.items && (
-          <div className={styles.sidebarCategoryItems}>
-            {item.items.map((subItem, index) => (
-              <SidebarItem
-                key={index}
-                item={subItem}
-                pathname={pathname}
-                expandedSections={expandedSections}
-                toggleSection={toggleSection}
-              />
-            ))}
-          </div>
-        )}
+          <ChevronDown
+            size={14}
+            className={`${styles.chevron} ${isExpanded ? styles.chevronExpanded : ""}`}
+          />
+        </div>
+        <div
+          className={`${styles.sidebarCategoryItems} ${isExpanded ? styles.sidebarCategoryItemsExpanded : ""}`}
+        >
+          {item.items?.map((subItem, index) => (
+            <SidebarItem
+              key={index}
+              item={subItem}
+              pathname={pathname}
+              expandedSections={expandedSections}
+              toggleSection={toggleSection}
+            />
+          ))}
+        </div>
       </div>
     );
   }
@@ -99,9 +111,22 @@ function SidebarItem({ item, pathname, expandedSections, toggleSection }) {
 export default function Sidebar() {
   const location = useLocation();
   const sidebarData = sidebarConfig.tutorialSidebar;
-  const [expandedSections, setExpandedSections] = useState(new Set());
   const scrollPosition = useScrollPosition();
   const isScrolled = scrollPosition > 0;
+
+  const getAllCategoryKeys = (data) => {
+    const keys = new Set();
+    data?.forEach((item) => {
+      if (item.type === "category") {
+        keys.add(item.label.toLowerCase());
+      }
+    });
+    return keys;
+  };
+
+  const [expandedSections, setExpandedSections] = useState(() =>
+    getAllCategoryKeys(sidebarData)
+  );
 
   useEffect(() => {
     const activeSection = sidebarData.find((item) => {
@@ -120,7 +145,11 @@ export default function Sidebar() {
       return false;
     });
     if (activeSection) {
-      setExpandedSections(new Set([activeSection.label.toLowerCase()]));
+      setExpandedSections((prev) => {
+        const newSet = new Set(prev);
+        newSet.add(activeSection.label.toLowerCase());
+        return newSet;
+      });
     }
   }, [location.pathname, sidebarData]);
 

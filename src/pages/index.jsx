@@ -39,7 +39,7 @@ function Home() {
               </h2>
               <div className={styles.cards}>
                 <Link
-                  to="/docs/getting-started/introduction"
+                  to="/docs/introduction"
                   className={`${styles.card} button`}
                 >
                   <span className={styles.cardContent}>
@@ -48,7 +48,7 @@ function Home() {
                   </span>
                 </Link>
                 <Link
-                  to="/docs/getting-started/introduction"
+                  to="/docs/introduction"
                   className={`${styles.card} button`}
                 >
                   <span className={styles.cardContent}>
@@ -57,7 +57,7 @@ function Home() {
                   </span>
                 </Link>
                 <Link
-                  to="/docs/getting-started/introduction"
+                  to="/docs/customization/getting-started"
                   className={`${styles.card} button`}
                 >
                   <span className={styles.cardContent}>

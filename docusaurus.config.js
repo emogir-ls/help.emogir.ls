@@ -57,6 +57,10 @@ const config = {
       respectPrefersColorScheme: false,
     },
   },
+  customFields: {
+    API_URL: process.env.API_URL || "",
+    FRONTEND_URL: process.env.FRONTEND_URL || "",
+  },
 };
 
 export default config;

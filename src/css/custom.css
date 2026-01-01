@@ -122,6 +122,16 @@ html[data-theme="dark"] {
   --ifm-toc-border-color: var(--emogir-border);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html,
 body {
   background: var(--emogir-bg);
@@ -198,6 +208,50 @@ a.button.button {
   text-decoration: none !important;
   line-height: 1.5 !important;
   text-align: left !important;
+}
+
+[class*="sidebarCategoryButton"],
+[class*="mobileNavCategoryButton"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 6px 0px 6px 10px !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  border: none !important;
+  transition: all 0.15s ease !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  width: 100% !important;
+  font-family: inherit !important;
+  margin: 0 0 2px 0 !important;
+  box-sizing: border-box !important;
+  line-height: normal !important;
+  white-space: normal !important;
+  gap: 0 !important;
+}
+
+[class*="sidebarCategoryButton"],
+[class*="mobileNavCategoryButton"] {
+  justify-content: space-between !important;
+  padding: 6px 0px 6px 10px !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  border: none !important;
+  transition: all 0.15s ease !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  width: 100% !important;
+  margin: 0 0 2px 0 !important;
+  line-height: normal !important;
+  white-space: normal !important;
+  gap: 0 !important;
 }
 
 button:not(.mobileMenuButton):not(.iconButton) svg,

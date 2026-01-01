@@ -33,8 +33,9 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# Old ESLint config (migrated to eslint.config.js)
+# Old ESLint config (migrated to eslint.config.mjs)
 .eslintrc.*
+eslint.config.js
 
 # OS
 Thumbs.db
