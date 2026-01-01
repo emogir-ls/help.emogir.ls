@@ -36,9 +36,9 @@ ALGOLIA_APP_ID=your_app_id
 ALGOLIA_API_KEY=your_api_key
 ALGOLIA_INDEX_NAME=your_index_name
 BASE_URL=https://emogir.ls
+API_URL=https://api.emogir.ls
+FRONTEND_URL=https://emogir.ls
 ```
-
-See `.example.env` for a template.
 
 #### Indexing Documentation to Algolia
 

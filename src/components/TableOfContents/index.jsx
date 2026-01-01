@@ -68,6 +68,23 @@ export default function TableOfContents() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleTocClick = (e, headingId) => {
+    e.preventDefault();
+    const element = document.getElementById(headingId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      history.pushState(null, "", `#${headingId}`);
+    }
+  };
+
   return (
     <nav className={styles.toc} aria-label="table of contents">
       <div className={styles.tocContainer}>
@@ -81,6 +98,7 @@ export default function TableOfContents() {
                   activeId === heading.id ? styles.tocLinkActive : ""
                 }`}
                 style={{ paddingLeft: `${(heading.level - 2) * 0.75}rem` }}
+                onClick={(e) => handleTocClick(e, heading.id)}
               >
                 {heading.text}
               </a>
