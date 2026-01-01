@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-function PageIcon({icon, iconType = "lucide"}) {
+function PageIcon({ icon, iconType = "lucide" }) {
   if (!icon) return null;
 
   if (iconType === "lucide") {
@@ -26,7 +26,13 @@ function PageIcon({icon, iconType = "lucide"}) {
   return null;
 }
 
-export default function PageMetadata({title, description, icon, iconType, badge}) {
+export default function PageMetadata({
+  title,
+  description,
+  icon,
+  iconType,
+  badge,
+}) {
   return (
     <div className={styles.metadata}>
       {(icon || title) && (
@@ -44,4 +50,3 @@ export default function PageMetadata({title, description, icon, iconType, badge}
     </div>
   );
 }
-

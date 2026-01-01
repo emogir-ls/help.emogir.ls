@@ -1,5 +1,11 @@
 import React from "react";
-import {Info, AlertTriangle, Lightbulb, AlertCircle, FileText} from "lucide-react";
+import {
+  Info,
+  AlertTriangle,
+  Lightbulb,
+  AlertCircle,
+  FileText,
+} from "lucide-react";
 import styles from "./styles.module.css";
 
 const iconMap = {
@@ -10,7 +16,11 @@ const iconMap = {
   note: FileText,
 };
 
-export default function Admonition({type = "info", children, className = ""}) {
+export default function Admonition({
+  type = "info",
+  children,
+  className = "",
+}) {
   const Icon = iconMap[type] || Info;
   const typeClass = styles[type] || styles.info;
 
@@ -21,4 +31,3 @@ export default function Admonition({type = "info", children, className = ""}) {
     </div>
   );
 }
-

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {useLocation} from "@docusaurus/router";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "@docusaurus/router";
 import Link from "@docusaurus/Link";
 import sidebarConfig from "../../../sidebars";
 import styles from "./styles.module.css";
@@ -8,15 +8,17 @@ function capitalizeFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function MobileMenuItem({item, pathname, expandedSections, toggleSection}) {
+function MobileMenuItem({ item, pathname, expandedSections, toggleSection }) {
   if (item.type === "link") {
-    const isActive = item.href === "/"
-      ? pathname === "/"
-      : pathname === item.href || pathname.startsWith(item.href);
+    const isActive =
+      item.href === "/"
+        ? pathname === "/"
+        : pathname === item.href || pathname.startsWith(item.href);
     return (
       <Link
         to={item.href}
-        className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}>
+        className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}
+      >
         {capitalizeFirst(item.label)}
       </Link>
     );
@@ -28,7 +30,8 @@ function MobileMenuItem({item, pathname, expandedSections, toggleSection}) {
     return (
       <Link
         to={docPath}
-        className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}>
+        className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}
+      >
         {capitalizeFirst(item.label)}
       </Link>
     );
@@ -49,9 +52,14 @@ function MobileMenuItem({item, pathname, expandedSections, toggleSection}) {
       <div className={styles.mobileNavCategory}>
         <button
           className={`${styles.mobileNavCategoryButton} ${hasActiveChild ? styles.mobileNavCategoryActive : ""}`}
-          onClick={() => toggleSection(categoryKey)}>
-          <span className={styles.mobileNavCategoryLabel}>{capitalizeFirst(item.label)}</span>
-          <span className={styles.mobileNavChevron}>{isExpanded ? "▲" : "▼"}</span>
+          onClick={() => toggleSection(categoryKey)}
+        >
+          <span className={styles.mobileNavCategoryLabel}>
+            {capitalizeFirst(item.label)}
+          </span>
+          <span className={styles.mobileNavChevron}>
+            {isExpanded ? "▲" : "▼"}
+          </span>
         </button>
         {isExpanded && item.items && (
           <div className={styles.mobileNavCategoryItems}>
@@ -84,7 +92,10 @@ export default function MobileMenu() {
         return item.items?.some((subItem) => {
           if (subItem.type === "doc") {
             const docPath = `/docs/${subItem.id}`;
-            return location.pathname === docPath || location.pathname.startsWith(`${docPath}/`);
+            return (
+              location.pathname === docPath ||
+              location.pathname.startsWith(`${docPath}/`)
+            );
           }
           return false;
         });
@@ -124,4 +135,3 @@ export default function MobileMenu() {
     </nav>
   );
 }
-

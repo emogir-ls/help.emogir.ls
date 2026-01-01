@@ -14,7 +14,9 @@ if (!ALGOLIA_APP_ID || !ALGOLIA_API_KEY || !ALGOLIA_INDEX_NAME) {
   if (!ALGOLIA_APP_ID) console.error("   - ALGOLIA_APP_ID");
   if (!ALGOLIA_API_KEY) console.error("   - ALGOLIA_API_KEY");
   if (!ALGOLIA_INDEX_NAME) console.error("   - ALGOLIA_INDEX_NAME");
-  console.error("\nPlease set these in your .env file or environment variables.");
+  console.error(
+    "\nPlease set these in your .env file or environment variables."
+  );
   process.exit(1);
 }
 
@@ -87,12 +89,14 @@ async function indexDocuments() {
         const cleanedBody = body
           .replace(/^import\s+.*?from\s+["'][^"']+["'];?\s*/gm, "")
           .replace(/^export\s+.*?from\s+["'][^"']+["'];?\s*/gm, "");
-        
+
         const textContent = extractTextFromMarkdown(cleanedBody);
-        
+
         const headingMatches = cleanedBody.match(/^(#{1,6})\s+(.+)$/gm) || [];
-        const headings = headingMatches.map((h) => h.replace(/^#+\s+/, "").trim());
-        
+        const headings = headingMatches.map((h) =>
+          h.replace(/^#+\s+/, "").trim()
+        );
+
         const h1Headings = headingMatches
           .filter((h) => h.startsWith("# "))
           .map((h) => h.replace(/^#+\s+/, "").trim());
@@ -132,7 +136,7 @@ async function indexDocuments() {
     }
 
     console.log(`\n🚀 Uploading ${records.length} records to Algolia...`);
-    
+
     await client.saveObjects({
       indexName: ALGOLIA_INDEX_NAME,
       objects: records,
