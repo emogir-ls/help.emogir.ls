@@ -21,6 +21,7 @@ export default {
   ul: MDXUl,
   li: MDXLi,
   img: MDXImg,
+  Img: MDXImg,
   Admonition,
   Mermaid,
 };

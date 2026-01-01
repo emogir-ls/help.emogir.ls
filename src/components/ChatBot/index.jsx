@@ -614,7 +614,7 @@ export default function ChatBot() {
                 {messages.length === 0 ? (
                   <div className={styles.chatWelcome}>
                     <p className={styles.welcomeText}>
-                      Hi{user.email ? `, ${user.email.split("@")[0]}` : ""}! I'm here to help. Ask me anything about your profile or the documentation.
+                      Hi{user.slug ? `, ${user.slug}` : ""}! I'm here to help. Ask me anything about your profile or the documentation.
                     </p>
                   </div>
                 ) : (
