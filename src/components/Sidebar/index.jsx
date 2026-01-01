@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {useLocation} from "@docusaurus/router";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "@docusaurus/router";
 import Link from "@docusaurus/Link";
 import sidebarConfig from "../../../sidebars";
 import styles from "./styles.module.css";
@@ -25,15 +25,17 @@ function capitalizeFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function SidebarItem({item, pathname, expandedSections, toggleSection}) {
+function SidebarItem({ item, pathname, expandedSections, toggleSection }) {
   if (item.type === "link") {
-    const isActive = item.href === "/" 
-      ? pathname === "/" 
-      : pathname === item.href || pathname.startsWith(item.href);
+    const isActive =
+      item.href === "/"
+        ? pathname === "/"
+        : pathname === item.href || pathname.startsWith(item.href);
     return (
       <Link
         to={item.href}
-        className={`${styles.sidebarLink} ${isActive ? styles.sidebarLinkActive : ""}`}>
+        className={`${styles.sidebarLink} ${isActive ? styles.sidebarLinkActive : ""}`}
+      >
         {capitalizeFirst(item.label)}
       </Link>
     );
@@ -45,7 +47,8 @@ function SidebarItem({item, pathname, expandedSections, toggleSection}) {
     return (
       <Link
         to={docPath}
-        className={`${styles.sidebarLink} ${isActive ? styles.sidebarLinkActive : ""}`}>
+        className={`${styles.sidebarLink} ${isActive ? styles.sidebarLinkActive : ""}`}
+      >
         {capitalizeFirst(item.label)}
       </Link>
     );
@@ -66,8 +69,11 @@ function SidebarItem({item, pathname, expandedSections, toggleSection}) {
       <div className={styles.sidebarCategory}>
         <button
           className={`${styles.sidebarCategoryButton} ${hasActiveChild ? styles.sidebarCategoryActive : ""}`}
-          onClick={() => toggleSection(categoryKey)}>
-          <span className={styles.sidebarCategoryLabel}>{capitalizeFirst(item.label)}</span>
+          onClick={() => toggleSection(categoryKey)}
+        >
+          <span className={styles.sidebarCategoryLabel}>
+            {capitalizeFirst(item.label)}
+          </span>
           <span className={styles.chevron}>{isExpanded ? "▲" : "▼"}</span>
         </button>
         {isExpanded && item.items && (
@@ -103,7 +109,10 @@ export default function Sidebar() {
         return item.items?.some((subItem) => {
           if (subItem.type === "doc") {
             const docPath = `/docs/${subItem.id}`;
-            return location.pathname === docPath || location.pathname.startsWith(`${docPath}/`);
+            return (
+              location.pathname === docPath ||
+              location.pathname.startsWith(`${docPath}/`)
+            );
           }
           return false;
         });
@@ -131,7 +140,9 @@ export default function Sidebar() {
 
   return (
     <aside className={styles.sidebar}>
-      <div className={`${styles.sidebarCard} ${isScrolled ? styles.sidebarCardBlurred : ""}`}>
+      <div
+        className={`${styles.sidebarCard} ${isScrolled ? styles.sidebarCardBlurred : ""}`}
+      >
         <nav className={styles.nav}>
           {sidebarData.map((item, index) => (
             <SidebarItem
@@ -147,4 +158,3 @@ export default function Sidebar() {
     </aside>
   );
 }
-

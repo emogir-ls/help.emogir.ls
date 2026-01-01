@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {X, ZoomIn} from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { X, ZoomIn } from "lucide-react";
 import styles from "./Img.module.css";
 
 export default function MDXImage(props) {
@@ -54,7 +54,8 @@ export default function MDXImage(props) {
           <button
             className={styles.closeButton}
             onClick={() => setIsOpen(false)}
-            aria-label="Close image">
+            aria-label="Close image"
+          >
             <X size={24} />
           </button>
           <div className={styles.lightboxContent}>
@@ -72,4 +73,3 @@ export default function MDXImage(props) {
     </>
   );
 }
-

@@ -1,17 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 
 function useHeadings() {
   const [headings, setHeadings] = useState([]);
 
   useEffect(() => {
-    const headingElements = Array.from(
-      document.querySelectorAll("h2, h3")
-    ).map((elem) => ({
-      id: elem.id,
-      text: elem.textContent,
-      level: parseInt(elem.tagName.substring(1)),
-    }));
+    const headingElements = Array.from(document.querySelectorAll("h2, h3")).map(
+      (elem) => ({
+        id: elem.id,
+        text: elem.textContent,
+        level: parseInt(elem.tagName.substring(1)),
+      })
+    );
 
     setHeadings(headingElements);
   }, []);
@@ -65,7 +65,7 @@ export default function TableOfContents() {
   }
 
   const scrollToTop = () => {
-    window.scrollTo({top: 0, behavior: "smooth"});
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -80,7 +80,8 @@ export default function TableOfContents() {
                 className={`${styles.tocLink} ${
                   activeId === heading.id ? styles.tocLinkActive : ""
                 }`}
-                style={{paddingLeft: `${(heading.level - 2) * 0.75}rem`}}>
+                style={{ paddingLeft: `${(heading.level - 2) * 0.75}rem` }}
+              >
                 {heading.text}
               </a>
             </li>
@@ -91,7 +92,8 @@ export default function TableOfContents() {
             className={styles.scrollToTop}
             onClick={scrollToTop}
             type="button"
-            aria-label="Scroll to top">
+            aria-label="Scroll to top"
+          >
             Scroll to top
             <svg
               viewBox="0 0 24 24"
@@ -99,7 +101,8 @@ export default function TableOfContents() {
               fill="none"
               strokeWidth="2"
               height="1.1em"
-              className={styles.scrollIcon}>
+              className={styles.scrollIcon}
+            >
               <path
                 d="M9 5l7 7-7 7"
                 strokeLinecap="round"
@@ -112,4 +115,3 @@ export default function TableOfContents() {
     </nav>
   );
 }
-

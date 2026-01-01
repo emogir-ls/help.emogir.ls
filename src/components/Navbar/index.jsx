@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useRef} from "react";
-import {MdHomeFilled} from "react-icons/md";
-import {FaDiscord} from "react-icons/fa6";
-import {HiMenu, HiX} from "react-icons/hi";
+import React, { useState, useEffect, useRef } from "react";
+import { MdHomeFilled } from "react-icons/md";
+import { FaDiscord } from "react-icons/fa6";
+import { HiMenu, HiX } from "react-icons/hi";
 import Link from "@docusaurus/Link";
 import MobileMenu from "./MobileMenu";
 import SearchBar from "@site/src/components/Search";
@@ -10,7 +10,6 @@ import styles from "./styles.module.css";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navbarRef = useRef(null);
-
 
   useEffect(() => {
     if (navbarRef.current) {
@@ -65,14 +64,16 @@ export default function Navbar() {
             <Link
               href="https://emogir.ls"
               className={styles.iconButton}
-              aria-label="Home">
+              aria-label="Home"
+            >
               <MdHomeFilled />
             </Link>
 
             <Link
               href="https://discord.gg/emogirls"
               className={styles.iconButton}
-              aria-label="Discord">
+              aria-label="Discord"
+            >
               <FaDiscord />
             </Link>
 
@@ -87,16 +88,15 @@ export default function Navbar() {
                   toggleMobileMenu();
                 }
               }}
-              aria-label="Toggle menu">
+              aria-label="Toggle menu"
+            >
               {isMobileMenuOpen ? <HiX /> : <HiMenu />}
             </div>
           </div>
         </div>
       </nav>
 
-      <div 
-        className={styles.mobileMenuOverlay}
-        data-open={isMobileMenuOpen}>
+      <div className={styles.mobileMenuOverlay} data-open={isMobileMenuOpen}>
         <div className={styles.mobileMenuContent}>
           <div className={styles.mobileSearchContainer}>
             <SearchBar
@@ -117,4 +117,3 @@ export default function Navbar() {
     </>
   );
 }
-
