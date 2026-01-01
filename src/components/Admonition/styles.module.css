@@ -1,0 +1,93 @@
+.admonition {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8125rem;
+  border-radius: 20px;
+  border: 2px solid;
+  margin: 0.5rem 0;
+  font-family: inherit;
+  width: 100%;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.content {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.content p {
+  margin: 0;
+  color: inherit;
+}
+
+.content p + p {
+  margin-top: 0.5rem;
+}
+
+.content ul,
+.content ol {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin: 0.25rem 0;
+}
+
+.info {
+  border-color: rgba(59, 130, 246, 0.27);
+  background: rgba(59, 130, 246, 0.27);
+  color: #ffffff;
+}
+
+.warning {
+  border-color: rgba(251, 146, 60, 0.27);
+  background: rgba(251, 146, 60, 0.27);
+  color: #ffffff;
+}
+
+.tip {
+  border-color: rgba(34, 197, 94, 0.27);
+  background: rgba(34, 197, 94, 0.27);
+  color: #ffffff;
+}
+
+.danger {
+  border-color: rgba(239, 68, 68, 0.27);
+  background: rgba(239, 68, 68, 0.27);
+  color: #ffffff;
+}
+
+.note {
+  border-color: rgba(255, 255, 255, 0.27);
+  background: rgba(255, 255, 255, 0.27);
+  color: #ffffff;
+}
+
+.info .icon {
+  color: #ffffff;
+}
+
+.warning .icon {
+  color: #ffffff;
+}
+
+.tip .icon {
+  color: #ffffff;
+}
+
+.danger .icon {
+  color: #ffffff;
+}
+
+.note .icon {
+  color: #ffffff;
+}

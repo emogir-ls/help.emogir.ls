@@ -1,0 +1,100 @@
+.button,
+a.button,
+a[class*="button"],
+.theme-doc-markdown a.button,
+.theme-doc-markdown .button,
+.theme-doc-markdown a[class*="button"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
+  padding: 0.3rem 0.8125rem !important;
+  background: rgba(255, 51, 121, 0.27) !important;
+  border: 2px solid rgba(255, 51, 121, 0.27) !important;
+  border-radius: 20px !important;
+  color: #ffffff !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease !important;
+  font-family: inherit !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-underline-offset: 0 !important;
+  text-decoration-thickness: 0 !important;
+  line-height: 1.5 !important;
+  text-align: left !important;
+  margin-bottom: 1rem !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.button:link,
+.button:visited,
+.button:active,
+a.button:link,
+a.button:visited,
+a.button:active,
+.theme-doc-markdown a.button:link,
+.theme-doc-markdown a.button:visited,
+.theme-doc-markdown a.button:active {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-underline-offset: 0 !important;
+  text-decoration-thickness: 0 !important;
+  border-bottom: none !important;
+}
+
+.button:hover:not(:disabled),
+a.button:hover:not(:disabled),
+a[class*="button"]:hover:not(:disabled),
+.theme-doc-markdown a.button:hover:not(:disabled),
+.theme-doc-markdown .button:hover:not(:disabled),
+.theme-doc-markdown a[class*="button"]:hover:not(:disabled) {
+  background: rgba(255, 51, 121, 0.35) !important;
+  border-color: rgba(255, 51, 121, 0.4) !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-underline-offset: 0 !important;
+  text-decoration-thickness: 0 !important;
+  border-bottom: none !important;
+}
+
+.button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+.icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.icon svg {
+  width: 20px !important;
+  height: 20px !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.button span:not(.icon) {
+  color: #ffffff !important;
+}
+
+.button::before,
+.button::after,
+a.button::before,
+a.button::after,
+.theme-doc-markdown a.button::before,
+.theme-doc-markdown a.button::after {
+  display: none !important;
+  content: none !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}

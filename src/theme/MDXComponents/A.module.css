@@ -1,0 +1,28 @@
+.markdownLink {
+  color: rgba(255, 51, 121, 0.7) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  transition: color 0.15s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+}
+
+.markdownLink:hover {
+  color: rgba(255, 51, 121, 0.9) !important;
+  text-decoration: underline !important;
+}
+
+.externalIcon {
+  flex-shrink: 0 !important;
+  opacity: 0.8 !important;
+  text-decoration: none !important;
+  stroke: currentColor !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-left: 0.125rem !important;
+}
+
+.markdownLink:hover .externalIcon {
+  opacity: 1 !important;
+}

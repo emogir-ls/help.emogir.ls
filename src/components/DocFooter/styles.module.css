@@ -1,0 +1,50 @@
+.footer {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #131313;
+  padding-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none !important;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+  font-family: inherit;
+  max-width: 50%;
+  word-break: break-word;
+}
+
+.navLink:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none !important;
+}
+
+.navLinkNext {
+  margin-left: auto;
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.navLinkPlaceholder {
+  flex: 1;
+}
+
+.iconLeft,
+.iconRight {
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+@media (min-width: 768px) {
+  .navLink {
+    font-size: 1.125rem;
+  }
+}
