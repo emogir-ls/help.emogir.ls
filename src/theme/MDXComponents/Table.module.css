@@ -1,0 +1,147 @@
+.tableWrapper {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  }
+
+  .tableWrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .tableWrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .tableWrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .tableWrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .table {
+    min-width: 100%;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: none;
+  border-radius: 15px;
+  overflow: visible;
+  background-color: #111111;
+  margin: 0;
+  isolation: isolate;
+  display: table;
+  table-layout: auto;
+}
+
+.table thead {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255, 51, 121, 0.12) 0%, rgba(255, 51, 121, 0.06) 100%);
+  border-bottom: 1px solid rgba(255, 51, 121, 0.2);
+}
+
+.table thead tr {
+  width: 100%;
+}
+
+.table tbody {
+  width: 100%;
+}
+
+.table tbody tr {
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.table thead tr:first-child th:first-child {
+  border-top-left-radius: 15px;
+}
+
+.table thead tr:first-child th:last-child {
+  border-top-right-radius: 15px;
+}
+
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
+}
+
+.table th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.95);
+  border: none;
+  text-transform: none;
+  box-sizing: border-box;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.table th:first-child {
+  padding-left: 1.5rem;
+}
+
+.table th:last-child {
+  padding-right: 1.5rem;
+  border: none;
+}
+
+.table td {
+  padding: 1.25rem 1.5rem;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  transition: background-color 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  width: 1%;
+}
+
+.table td:first-child {
+  padding-left: 1.5rem;
+}
+
+.table td:last-child {
+  padding-right: 1.5rem;
+  border: none;
+}
+
+.table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(255, 51, 121, 0.08);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 51, 121, 0.1);
+}
+
+.table tbody tr:hover td {
+  color: rgba(255, 255, 255, 0.95);
+}
+

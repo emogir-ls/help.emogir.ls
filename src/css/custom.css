@@ -1013,6 +1013,13 @@ article a:hover {
   padding: 0;
 }
 
+.theme-doc-markdown hr {
+  border: none;
+  border-top: 1px solid #131313;
+  margin: 2rem 0;
+  padding: 0;
+}
+
 .theme-doc-breadcrumbs {
   margin-bottom: 1.5rem;
 }

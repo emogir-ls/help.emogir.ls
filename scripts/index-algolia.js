@@ -32,6 +32,7 @@ function extractTextFromMarkdown(content) {
     .replace(/`[^`]+`/g, "")
     .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1")
     .replace(/!\[([^\]]*)\]\([^\)]+\)/g, "")
+    .replace(/\{[#][^}]+\}/g, "")
     .replace(/[#*_~`]/g, "")
     .replace(/\n+/g, " ")
     .trim();
@@ -94,18 +95,18 @@ async function indexDocuments() {
 
         const headingMatches = cleanedBody.match(/^(#{1,6})\s+(.+)$/gm) || [];
         const headings = headingMatches.map((h) =>
-          h.replace(/^#+\s+/, "").trim()
+          h.replace(/^#+\s+/, "").replace(/\{[#][^}]+\}/g, "").trim()
         );
 
         const h1Headings = headingMatches
           .filter((h) => h.startsWith("# "))
-          .map((h) => h.replace(/^#+\s+/, "").trim());
+          .map((h) => h.replace(/^#+\s+/, "").replace(/\{[#][^}]+\}/g, "").trim());
         const h2Headings = headingMatches
           .filter((h) => h.startsWith("## "))
-          .map((h) => h.replace(/^#+\s+/, "").trim());
+          .map((h) => h.replace(/^#+\s+/, "").replace(/\{[#][^}]+\}/g, "").trim());
         const h3Headings = headingMatches
           .filter((h) => h.startsWith("### "))
-          .map((h) => h.replace(/^#+\s+/, "").trim());
+          .map((h) => h.replace(/^#+\s+/, "").replace(/\{[#][^}]+\}/g, "").trim());
 
         const record = {
           objectID: url,

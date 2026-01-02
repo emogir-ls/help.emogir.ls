@@ -1,6 +1,7 @@
 import React from "react";
 import MDXA from "./A";
 import MDXImg from "./Img";
+import MDXTable from "./Table";
 import MDXCode from "@theme-original/MDXComponents/Code";
 import MDXPre from "@theme-original/MDXComponents/Pre";
 import MDXDetails from "@theme-original/MDXComponents/Details";
@@ -22,6 +23,8 @@ export default {
   li: MDXLi,
   img: MDXImg,
   Img: MDXImg,
+  table: MDXTable,
+  Table: MDXTable,
   Admonition,
   Mermaid,
 };

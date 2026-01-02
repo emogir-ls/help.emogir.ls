@@ -43,13 +43,29 @@ export default {
         },
         {
           type: "doc",
-          id: "general/contact-us",
-          label: "Contact Us",
+          id: "general/analytics",
+          label: "Analytics",
         },
         {
           type: "doc",
-          id: "general/analytics",
-          label: "Analytics",
+          id: "general/contact-us",
+          label: "Contact Us",
+        },
+      ]
+    },
+    {
+      type: "category",
+      label: "How-To Guides",
+      items: [
+        {
+          type: "doc",
+          id: "how-to/assets",
+          label: "Uploading Assets",
+        },
+        {
+          type: "doc",
+          id: "how-to/discord-connection",
+          label: "Connecting your Discord Account",
         }
       ]
     },
@@ -57,11 +73,6 @@ export default {
       type: "category",
       label: "Premium Guides",
       items: [
-        {
-          type: "doc",
-          id: "premium/all-guides",
-          label: "Guide index",
-        },
         {
           type: "doc",
           id: "premium/badge-customization",

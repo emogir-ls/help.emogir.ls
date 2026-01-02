@@ -9,7 +9,15 @@ function capitalizeFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function MobileMenuItem({ item, pathname, expandedSections, toggleSection }) {
+function MobileMenuItem({ item, pathname, expandedSections, toggleSection, onNavigate }) {
+  const handleClick = () => {
+    if (onNavigate) {
+      setTimeout(() => {
+        onNavigate();
+      }, 100);
+    }
+  };
+
   if (item.type === "link") {
     const isActive =
       item.href === "/"
@@ -19,6 +27,7 @@ function MobileMenuItem({ item, pathname, expandedSections, toggleSection }) {
       <Link
         to={item.href}
         className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}
+        onClick={handleClick}
       >
         {capitalizeFirst(item.label)}
       </Link>
@@ -32,6 +41,7 @@ function MobileMenuItem({ item, pathname, expandedSections, toggleSection }) {
       <Link
         to={docPath}
         className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}
+        onClick={handleClick}
       >
         {capitalizeFirst(item.label)}
       </Link>
@@ -81,6 +91,7 @@ function MobileMenuItem({ item, pathname, expandedSections, toggleSection }) {
               pathname={pathname}
               expandedSections={expandedSections}
               toggleSection={toggleSection}
+              onNavigate={onNavigate}
             />
           ))}
         </div>
@@ -91,7 +102,7 @@ function MobileMenuItem({ item, pathname, expandedSections, toggleSection }) {
   return null;
 }
 
-export default function MobileMenu() {
+export default function MobileMenu({ onNavigate }) {
   const location = useLocation();
   const sidebarData = sidebarConfig.tutorialSidebar;
 
@@ -157,6 +168,7 @@ export default function MobileMenu() {
           pathname={location.pathname}
           expandedSections={expandedSections}
           toggleSection={toggleSection}
+          onNavigate={onNavigate}
         />
       ))}
     </nav>

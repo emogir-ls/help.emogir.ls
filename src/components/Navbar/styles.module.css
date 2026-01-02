@@ -210,9 +210,14 @@
   width: 100%;
 }
 
+.mobileSearchContainer > * {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
 .mobileSearchInput {
   width: 100%;
-  padding: 0.5rem 4.5rem 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   border-radius: 0.5rem;
@@ -221,6 +226,12 @@
   color: #ffffff;
   transition: all 0.15s ease;
   outline: none;
+  box-sizing: border-box;
+}
+
+.mobileSearchInput::-webkit-search-cancel-button {
+  appearance: none;
+  display: none;
 }
 
 .mobileSearchInput::placeholder {
@@ -239,38 +250,26 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-.mobileSearchKbd {
-  position: absolute;
-  right: 0.375rem;
+.menuIconWrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.1875rem 0.3125rem;
-  height: 1.125rem;
-  border-radius: 0.25rem;
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family:
-    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
-    monospace;
-  font-size: 0.625rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-  pointer-events: none;
-  user-select: none;
-  transition: opacity 0.15s ease;
+  justify-content: center;
 }
 
-.mobileSearchContainer[data-search-focused="true"] .mobileSearchKbd,
-.mobileSearchContainer:has(#mobile-navbar-search[data-focused="true"])
-  .mobileSearchKbd,
-.mobileSearchContainer:has(#mobile-navbar-search:focus) .mobileSearchKbd {
+.menuIcon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.menuIconHidden {
   opacity: 0;
+  transform: rotate(90deg);
   pointer-events: none;
-}
-
-.mobileSearchKbd span {
-  display: inline-block;
 }
 
 .mobileMenuWrapper {

@@ -90,7 +90,10 @@ export default function Navbar() {
               }}
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <HiX /> : <HiMenu />}
+              <div className={styles.menuIconWrapper}>
+                <HiMenu className={`${styles.menuIcon} ${isMobileMenuOpen ? styles.menuIconHidden : ""}`} />
+                <HiX className={`${styles.menuIcon} ${isMobileMenuOpen ? "" : styles.menuIconHidden}`} />
+              </div>
             </div>
           </div>
         </div>
@@ -104,13 +107,9 @@ export default function Navbar() {
               className={styles.mobileSearchInput}
               placeholder="Search documentation…"
             />
-            <kbd className={styles.mobileSearchKbd}>
-              <span>CTRL</span>
-              <span>K</span>
-            </kbd>
           </div>
           <div className={styles.mobileMenuWrapper}>
-            <MobileMenu />
+            <MobileMenu onNavigate={() => setIsMobileMenuOpen(false)} />
           </div>
         </div>
       </div>

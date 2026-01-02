@@ -76,12 +76,14 @@ export default function TableOfContents() {
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-
-      history.pushState(null, "", `#${headingId}`);
+      window.history.pushState(null, "", `#${headingId}`);
+      
+      setTimeout(() => {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }, 0);
     }
   };
 

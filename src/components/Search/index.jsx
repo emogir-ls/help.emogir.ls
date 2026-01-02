@@ -67,14 +67,58 @@ export default function SearchBar({ searchId, className, placeholder }) {
           indexName: indexRef.current,
           query: query,
           requestOptions: {
-            hitsPerPage: 8,
+            hitsPerPage: 20,
             attributesToRetrieve: ["*"],
             attributesToSnippet: ["content:200"],
             getRankingInfo: true,
+            attributesToHighlight: ["title", "content", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2"],
           },
         });
 
-        const results = response.hits || [];
+        const queryLower = query.toLowerCase().trim();
+        const queryWords = queryLower.split(/\s+/).filter(Boolean);
+        
+        let results = (response.hits || []).map((hit) => {
+          const title = hit.title || hit.hierarchy?.lvl0 || "";
+          const content = hit.content || "";
+          const titleLower = title.toLowerCase();
+          const contentLower = content.toLowerCase();
+          
+          let matchScore = 0;
+          let hasMatch = false;
+          
+          queryWords.forEach((word) => {
+            if (titleLower.includes(word)) {
+              matchScore += 10;
+              hasMatch = true;
+            }
+            if (contentLower.includes(word)) {
+              matchScore += 1;
+              hasMatch = true;
+            }
+          });
+          
+          if (titleLower.includes(queryLower)) {
+            matchScore += 20;
+            hasMatch = true;
+          }
+          if (contentLower.includes(queryLower)) {
+            matchScore += 5;
+            hasMatch = true;
+          }
+          
+          return {
+            ...hit,
+            _matchScore: matchScore,
+            _hasMatch: hasMatch,
+          };
+        });
+        
+        results = results
+          .filter((hit) => hit._hasMatch)
+          .sort((a, b) => b._matchScore - a._matchScore)
+          .slice(0, 8);
+        
         setResults(results);
         if (!ctrlKRef.current && results.length > 0) {
           setIsOpen(true);
