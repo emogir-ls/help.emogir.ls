@@ -19,6 +19,16 @@ export default {
           type: "doc",
           id: "customization/exploring-your-options",
           label: "Exploring Your Options",
+        },
+        {
+          type: "doc",
+          id: "customization/sharing",
+          label: "Sharing Your Profile"
+        },
+        {
+          type: "doc",
+          id: "customization/premium",
+          label: "Explore Premium"
         }
       ]
     },
