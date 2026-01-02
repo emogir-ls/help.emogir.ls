@@ -182,17 +182,19 @@
   z-index: 999;
   overflow-y: auto;
   transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
   contain: layout style;
   overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .mobileMenuOverlay[data-open="true"] {
   transform: translateY(0);
   pointer-events: auto;
+  visibility: visible;
 }
 
 .mobileMenuContent {

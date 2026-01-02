@@ -162,6 +162,14 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
+[class*="searchPage"] {
+  background: #0a0a0a !important;
+}
+
+[class*="searchPage"] h1 {
+  color: #ffffff !important;
+}
+
 *,
 *::before,
 *::after,
@@ -1436,4 +1444,22 @@ button.DocSearch-Button:focus,
   background: rgba(255, 255, 255, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[class*="searchPage"] {
+  background: #0a0a0a !important;
+}
+
+[class*="searchPage"] h1 {
+  color: #ffffff !important;
+}
+
+.main-wrapper:has([class*="searchPage"]) {
+  background: #0a0a0a !important;
+}
+
+.main-wrapper:has([class*="searchPage"]) .container {
+  background: #0a0a0a !important;
+  max-width: 100% !important;
+  padding: 0 !important;
 }
